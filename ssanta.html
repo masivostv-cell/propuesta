@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Semana Santa | JA PRODUCCIONES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Colores corporativos del logo */
+            --primary-blue: #002884; 
+            --light-blue: #007bff;   
+            --accent-purple: #6f42c1; 
+            --wa-green: #25D366;
+            --text-light: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { 
+            color: var(--text-light); 
+            line-height: 1.6; scroll-behavior: smooth; 
+            background: linear-gradient(-45deg, #020b1f, #001f5c, #2a1154, #000c24);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            position: relative;
+            text-align: center;
+            padding: 8rem 1rem 6rem 1rem;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute; top: -5%; left: -5%; right: -5%; bottom: -5%;
+            background: url('cristo evangelizador - 3.JPG') center/cover no-repeat;
+            filter: blur(8px) brightness(0.6); 
+            z-index: -2;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 40, 132, 0.85), rgba(111, 66, 193, 0.7));
+            z-index: -1;
+        }
+        
+        .logo-container img { 
+            max-width: 280px; margin-bottom: 20px; 
+            filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.6)); 
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-hook {
+            font-size: 3.8rem; margin-bottom: 15px; 
+            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            font-weight: 800;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+        
+        .hero-sub { 
+            font-size: 1.4rem; max-width: 850px; margin: 0 auto 20px auto; 
+            color: #f1f5f9; text-shadow: 0 2px 8px rgba(0,0,0,0.8); 
+        }
+
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            background: linear-gradient(45deg, var(--light-blue), var(--accent-purple)); color: white;
+            padding: 15px 35px; text-decoration: none; border-radius: 50px;
+            font-weight: bold; font-size: 1.2rem; transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(111,66,193,0.5); border: none; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 30px rgba(111,66,193,0.8); }
+        .btn-wa { background: var(--wa-green); box-shadow: 0 5px 20px rgba(37,211,102,0.5); }
+        .btn-wa:hover { background: #1ebe57; box-shadow: 0 10px 30px rgba(37,211,102,0.7); }
+
+        section { padding: 5rem 2rem; max-width: 1250px; margin: auto; }
+        h2 { text-align: center; color: #fff; font-size: 2.8rem; margin-bottom: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        h2::after { content: ''; width: 100px; height: 5px; background: linear-gradient(90deg, #00d2ff, var(--accent-purple)); display: block; margin: 15px auto 0; border-radius: 3px; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 2.5rem 2rem;
+            box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4); transition: all 0.4s ease;
+        }
+        
+        /* --- TIMELINE CRONOGRAMA --- */
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; padding: 20px 0; }
+        .timeline::after {
+            content: ''; position: absolute; width: 4px; background: linear-gradient(to bottom, var(--light-blue), var(--accent-purple));
+            top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 5px;
+        }
+        .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+        .timeline-item::after {
+            content: ''; position: absolute; width: 20px; height: 20px; right: -10px; 
+            background-color: var(--light-blue); border: 4px solid var(--accent-purple); 
+            top: 15px; border-radius: 50%; z-index: 1; box-shadow: 0 0 10px #00d2ff;
+        }
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -10px; }
+        
+        .timeline-content { 
+            padding: 20px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); 
+            border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); transition: transform 0.3s ease;
+        }
+        .timeline-content:hover { transform: translateY(-5px); border-color: #00d2ff; }
+        .timeline-content h3 { color: #00d2ff; font-size: 1.5rem; margin-bottom: 5px; }
+        .timeline-content h4 { color: #fff; font-size: 1.1rem; margin-bottom: 10px; }
+        .timeline-content p { color: #d1d5db; font-size: 0.95rem; }
+        
+        .badge-tech {
+            display: inline-block; background: rgba(111, 66, 193, 0.3); color: white;
+            padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; margin-top: 10px; margin-right: 5px; border: 1px solid rgba(111, 66, 193, 0.5);
+        }
+
+        /* --- SERVICIOS GRID --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .service-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.6rem; }
+        .service-card p { margin-bottom: 20px; font-size: 1rem; color: #d1d5db; }
+        .service-card ul { list-style: none; text-align: left; }
+        .service-card ul li { margin-bottom: 10px; font-size: 1rem; padding-left: 25px; position: relative; color: #f8f9fa; }
+        .service-card ul li::before { content: '✓'; color: #00d2ff; position: absolute; left: 0; font-size: 1.2rem; font-weight: bold; }
+
+        /* --- GALERÍA --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); height: 260px; background: #000; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-item img:hover { transform: scale(1.1); filter: brightness(0.8); }
+        
+        .wa-floating {
+            position: fixed; bottom: 30px; right: 30px; background-color: var(--wa-green); color: white;
+            width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 40px; box-shadow: 0 5px 25px rgba(37,211,102,0.6); z-index: 1000; transition: transform 0.3s ease; text-decoration: none;
+        }
+        .wa-floating:hover { transform: scale(1.15) rotate(15deg); }
+
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.9s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        footer { background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); text-align: center; padding: 5rem 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        
+        @media (max-width: 768px) {
+            .hero-hook { font-size: 2.2rem; }
+            .hero-sub { font-size: 1.1rem; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::after { left: 21px; }
+            .right { left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="reveal active">
+        <div class="logo-container">
+            <img src="logo.png" alt="JA Producciones Logo">
+        </div>
+        <h1 class="hero-hook">Producción y Transmisión para Semana Santa</h1>
+        <p class="hero-sub">Amplificamos el impacto de cada celebración, facilitando la participación de los fieles presentes y de quienes siguen las actividades a través de medios digitales con altos estándares de calidad técnica.</p>
+        
+        <br>
+        <a href="https://wa.me/573132666395?text=Hola%20alex,%20me%20interesa%20conocer%20la%20cotización%20para%20la%20producción%20y%20transmisión%20de%20Semana%20Santa." target="_blank" class="btn btn-wa">
+            <i class="fab fa-whatsapp"></i> COTIZAR EL SERVICIO AHORA
+        </a>
+    </header>
+
+    <section id="cronograma" class="reveal">
+        <h2>Cronograma de Cubrimiento</h2>
+        <p style="text-align: center; margin-bottom: 3rem; font-size: 1.1rem;">Acompañamiento técnico audiovisual para todas las actividades litúrgicas.</p>
+        
+        <div class="timeline">
+            <div class="timeline-item left reveal">
+                <div class="timeline-content">
+                    <h3>Viernes 27/03</h3>
+                    <h4>Procesión La Dolorosa</h4>
+                    <p>Cubrimiento en exteriores para garantizar que el mensaje llegue a todos los asistentes.</p>
+                    <span class="badge-tech"><i class="fas fa-video"></i> Circuito Cerrado</span>
+                    <span class="badge-tech"><i class="fas fa-broadcast-tower"></i> Transmisión (Si se requiere)</span>
+                </div>
+            </div>
+            <div class="timeline-item right reveal">
+                <div class="timeline-content">
+                    <h3>Domingo 29/03</h3>
+                    <h4>Procesión Domingo de Ramos</h4>
+                    <p>Apoyo técnico completo para la apertura solemne de la Semana Santa.</p>
+                    <span class="badge-tech"><i class="fas fa-video"></i> Circuito Cerrado</span>
+                    <span class="badge-tech"><i class="fas fa-broadcast-tower"></i> Transmisión (Si se requiere)</span>
+                </div>
+            </div>
+            <div class="timeline-item left reveal">
+                <div class="timeline-content">
+                    <h3>Jueves 02/04</h3>
+                    <h4>Inicio Triduo Pascual</h4>
+                    <p>Visualización en tiempo real para mejorar la experiencia de los fieles en espacios de gran asistencia.</p>
+                    <span class="badge-tech"><i class="fas fa-video"></i> Circuito Cerrado</span>
+                    <span class="badge-tech"><i class="fas fa-broadcast-tower"></i> Transmisión (Si se requiere)</span>
+                </div>
+            </div>
+            <div class="timeline-item right reveal">
+                <div class="timeline-content">
+                    <h3>Viernes 03/04</h3>
+                    <h4>Jornada Completa</h4>
+                    <p><strong>Procesión Viacrucis</strong><br>
+                       <strong>Pasión del Señor</strong><br>
+                       <strong>Procesión Santo Sepulcro</strong></p>
+                    <span class="badge-tech"><i class="fas fa-video"></i> Circuito Cerrado</span>
+                    <span class="badge-tech"><i class="fas fa-broadcast-tower"></i> Transmisión (Si se requiere)</span>
+                </div>
+            </div>
+            <div class="timeline-item left reveal">
+                <div class="timeline-content">
+                    <h3>Sábado 04/04</h3>
+                    <h4>Bendición del Fuego</h4>
+                    <p>Transmisión interna del momento cúspide de la vigilia pascual.</p>
+                    <span class="badge-tech"><i class="fas fa-video"></i> Circuito Cerrado</span>
+                    <span class="badge-tech"><i class="fas fa-broadcast-tower"></i> Transmisión (Si se requiere)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://wa.me/573132666395?text=Hola,%20quisiera%20solicitar%20la%20cotización%20del%20cronograma%20completo%20de%20Semana%20Santa." target="_blank" class="btn">
+                Solicitar Cotización del Cronograma
+            </a>
+        </div>
+    </section>
+
+    <section id="infraestructura" class="reveal" style="background: rgba(0,0,0,0.3); padding-bottom: 6rem;">
+        <h2>Nuestra Infraestructura Técnica</h2>
+        <div class="services-grid">
+            <div class="service-card glass-card">
+                <h3><i class="fas fa-broadcast-tower" style="color: #00d2ff;"></i> Transmisión en Vivo</h3>
+                <p>Fortalecemos las redes sociales de tu parroquia llevando la fe al entorno digital.</p>
+                <ul>
+                    <li>Cámaras de video profesionales</li>
+                    <li>Diferentes planos (altar, público, generales)</li>
+                    <li>Mezcla profesional de video en vivo</li>
+                    <li>Integración con redes sociales</li>
+                </ul>
+            </div>
+            <div class="service-card glass-card">
+                <h3><i class="fas fa-tv" style="color: #00d2ff;"></i> Circuito Cerrado (CCTV)</h3>
+                <p>Permite que todos los asistentes sigan la liturgia claramente, incluso fuera del templo.</p>
+                <ul>
+                    <li>Señal de video distribuida a pantallas</li>
+                    <li>Pantallas LED Gigantes (Ej: 3x2 mts)</li>
+                    <li>Visualización en diferentes puntos</li>
+                    <li>Monitoreo técnico continuo</li>
+                </ul>
+            </div>
+            <div class="service-card glass-card">
+                <h3><i class="fas fa-users-cog" style="color: #00d2ff;"></i> Operación Profesional</h3>
+                <p>No dejamos nada al azar, nuestro equipo garantiza una organización impecable.</p>
+                <ul>
+                    <li>Operadores de cámara especializados</li>
+                    <li>Consola de producción audiovisual</li>
+                    <li>Registro audiovisual del evento</li>
+                    <li>Organización técnica garantizada</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="reveal">
+        <h2>Experiencia en Eventos Solemnes</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Nuestro registro audiovisual profesional en liturgias y celebraciones religiosas.</p>
+
+        <div class="gallery-grid" id="galleryContainer">
+            <div class="gallery-item"><img src="transmicion miercoles de ceniza - 3.JPG" loading="lazy" alt="Producción Religiosa"></div>
+            <div class="gallery-item"><img src="transmicion miercoles de ceniza - 4.jpeg" loading="lazy" alt="Producción Religiosa"></div>
+            <div class="gallery-item"><img src="viernes santo.jpg" loading="lazy" alt="Producción Religiosa"></div>
+            <div class="gallery-item"><img src="sabado santo-2.JPG" loading="lazy" alt="Producción Religiosa"></div>
+            <div class="gallery-item"><img src="semana santa zulia - 11.jpeg" loading="lazy" alt="Producción Religiosa"></div>
+            <div class="gallery-item"><img src="semana santa zulia - 7.jpeg" loading="lazy" alt="Producción Religiosa"></div>
+            <div class="gallery-item"><img src="cristo evangelizador - 6.JPG" loading="lazy" alt="Producción Religiosa"></div>
+            <div class="gallery-item"><img src="cristo evangelizador - 5.JPG" loading="lazy" alt="Producción Religiosa"></div>
+        </div>
+    </section>
+
+    <footer>
+        <h3 style="font-size: 2rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, #00d2ff, #9d4edd); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Tecnología, experiencia y calidad al servicio de grandes eventos.</h3>
+        <p style="margin-bottom: 25px; font-size: 1.2rem;">JA PRODUCCIONES</p>
+        
+        <a href="https://wa.me/573132666395?text=Hola%20Jorge,%20deseo%20cotizar%20la%20producción%20audiovisual%20para%20los%20eventos%20de%20Semana%20Santa." target="_blank" class="btn btn-wa">
+            <i class="fab fa-whatsapp"></i> Hablar con un asesor.
+        </a>
+        
+        <p style="font-size: 1.5rem; font-weight: bold; color: #00d2ff; margin-top: 20px;">📱 +57 313 2666395</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem; color: #888;">&copy; 2026 JA Producciones. Propuesta Comercial Confidencial.</p>
+    </footer>
+
+    <a href="https://wa.me/573132666395?text=Hola,%20estoy%20revisando%20la%20propuesta%20web%20para%20Semana%20Santa%20y%20me%20gustaría%20solicitar%20los%20precios." class="wa-floating" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Animación al hacer Scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>
